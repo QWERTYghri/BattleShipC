@@ -5,10 +5,10 @@
 #
 
 CC	:= gcc
-CFLAGS	:= -std=c90 -pedantic -Werror -Wall
+CFLAGS	:= -std=c90 -pedantic -Werror -Wall -O2
 
-all: game.out
+all: game
 
 
-game.out: main.c config/conf.h
+game: main.c
 	$(CC) $(CFLAGS) -o $@ $^
