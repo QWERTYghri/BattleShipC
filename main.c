@@ -42,8 +42,8 @@ void initGrid ( void )
 		{
 			gameGrid[y][x] = 'O';
 
-			if (  )
-				gameGrid[y][x] = '0' + x;
+			if ( y == 0 )
+				gameGrid[y][x] = y + '0';
 		}
 	}
 	gameGrid[0][0] = 'X';
