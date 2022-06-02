@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <time.h>
 
 
 /* Definitions */
@@ -19,10 +20,10 @@
 #define MAX_STR_IN	( ( uint32_t ) 50 )
 #define BASE_10		( ( uint32_t ) 10 )
 
-char gameGrid[MAX_GRID][MAX_GRID];
+char* gameGrid[MAX_GRID][MAX_GRID];
 
 /* Func prototypes */
-int32_t getStrNum ( void )
+int32_t getStrNum ( void )	/* Func to get an int from stdin */
 {
 	char tmpBuf[MAX_STR_IN];
 
@@ -40,13 +41,10 @@ void initGrid ( void )
 	{
 		for ( x = 0; x < MAX_GRID; x++ )
 		{
-			gameGrid[y][x] = 'O';
-
-			if ( y == 0 )
-				gameGrid[y][x] = y + '0';
+			
 		}
 	}
-	gameGrid[0][0] = 'X';
+	gameGrid[0][0] = "X";
 }
 
 void printGrid ( void )
@@ -57,16 +55,27 @@ void printGrid ( void )
 	{
 		for ( x = 0; x < MAX_GRID; x++ )
 		{
-			printf ( "%c ", gameGrid[y][x] );
+			printf ( "%s ", gameGrid[y][x] );
 		}
 		putchar ( '\n' );
 	}
 }
 
+void clsBoard ( void )
+{
+	uint32_t y, x;
+
+	for ( y = 1; y < MAX_GRID; y++ )
+	{
+		for ( x = 1; x < MAX_GRID; x++ )
+			gameGrid[y][x] = "X";
+	}
+}
 
 int main ( void )
 {
-	initGrid ();
-	printGrid ();
+	srand ( time ( NULL ) );
+
+
 	return 0;
 }
