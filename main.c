@@ -19,8 +19,11 @@
 #define MAX_TRIES	( ( uint32_t ) 4 )
 #define MAX_STR_IN	( ( uint32_t ) 50 )
 #define BASE_10		( ( uint32_t ) 10 )
+#define LOW_RAND	( ( uint32_t ) 1 )
+
 
 char* gameGrid[MAX_GRID][MAX_GRID];
+const char* intro = "A battleship C game v2";
 
 /* Func prototypes */
 int32_t getStrNum ( void )	/* Func to get an int from stdin */
@@ -33,7 +36,7 @@ int32_t getStrNum ( void )	/* Func to get an int from stdin */
 	return ( ( int32_t ) strtol ( tmpBuf, NULL, BASE_10 ) );
 }
 
-void initGrid ( void )
+void initGrid ( void )		/* initialize the gameGrid */
 {
 	uint32_t y, x;
 
@@ -47,7 +50,7 @@ void initGrid ( void )
 	gameGrid[0][0] = "X";
 }
 
-void printGrid ( void )
+void printGrid ( void )		/* Printing the grid to terminal */
 {
 	uint32_t y, x;
 
@@ -61,7 +64,12 @@ void printGrid ( void )
 	}
 }
 
-void clsBoard ( void )
+void retRandRng ( void ) /* returns rand num from 1 - MAX_GRID */
+{
+	return rand () % ( LOW_RAND, MAX_GRID + 1 ) + LOW_RAND;
+}
+
+void clsBoard ( void )		/* Clear the board */
 {
 	uint32_t y, x;
 
@@ -75,6 +83,23 @@ void clsBoard ( void )
 int main ( void )
 {
 	srand ( time ( NULL ) );
+
+	int32_t rand1, rand2;
+	int32_t tries = MAX_TRIES;
+
+
+	printf ( "%s\n\n", intro );
+	
+	while ( 1 ) /* game loop */
+	{
+		rand1 = retRandRng ();
+		rand2 = retRandRng ();
+		
+		while ( tries > 0 )
+		{
+					
+		}
+	}
 
 
 	return 0;
