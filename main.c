@@ -15,7 +15,7 @@
 
 /* Definitions */
 
-#define MAX_GRID	( ( int32_t ) 8 )
+#define MAX_GRID	( ( int32_t ) 8 ) /* note label will denote 1 - ( MAX_GRID - 1 )
 #define SHOW_NUM	( ( int32_t ) 0 )
 #define MAX_TRIES	( ( int32_t ) 4 )
 #define MAX_STR_IN	( ( int32_t ) 50 )
@@ -68,11 +68,11 @@ void initGrid ( void )		/* initialize the gameGrid */
 			/* kys wtf is this code */
 			if ( y == 0 )
 			{
-				gameGrid[y][x] = retIntStrConv ( y );
+				gameGrid[y][x] = retIntStrConv ( x );
 			}
 			else if ( x == 0 )
 			{
-				gameGrid[y][x] = retIntStrConv ( x );
+				gameGrid[y][x] = retIntStrConv ( y );
 			}
 		}
 	}
@@ -127,11 +127,12 @@ int main ( void )
 		rand1 = retRandRng ();
 		rand2 = retRandRng ();
 		
+		if ( SHOW_NUM )
+			printf ( "\n%d %d\n", rand1, rand2 );
 		
 		while ( tries > 0 )
 		{
 			printGrid ();
-			printf ( "\n%d %d\n", rand1, rand2 );
 
 			inp1 = getStrNum ();
 			inp2 = getStrNum ();
@@ -151,13 +152,14 @@ int main ( void )
 			tries--;
 
 			if ( !tries )
-				printf ( "\n\nFailed -5" );
+				printf ( "\n\nFailed -5\n" );
 		}
 
 		printf ( "GAME ENDED\n\nScore : %d\n\n", score );
 
 		tries = MAX_TRIES;
 
+		fputs ( "\n\n\n\n\n\n\n\n\n\n", stdout );
 	}
 
 	return 0;
