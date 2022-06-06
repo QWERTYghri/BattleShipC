@@ -6,7 +6,7 @@ different objects that span out in the grid.
 
 ### info
 
-> Board size is based on conf.h and is stated
-> Max input is 1 - ( conf.h maxdef )
+> Board size is based on `MAX_GRID`
+> Max input is 1 - `MAX_GRID`
 > ANSI C standard
 > libc
