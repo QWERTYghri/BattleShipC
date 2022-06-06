@@ -6,7 +6,7 @@ different objects that span out in the grid.
 
 ### info
 
-> Board size is based on `MAX_GRID`
-> Max input is 1 - `MAX_GRID`
-> ANSI C standard
-> libc
+1. Board size is based on `MAX_GRID`
+2. Max input is 1 - `MAX_GRID`
+3. ANSI C standard
+4. libc
