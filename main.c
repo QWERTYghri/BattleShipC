@@ -15,7 +15,7 @@
 
 /* Definitions */
 
-#define MAX_GRID	( ( int32_t ) 8 ) /* note label will denote 1 - ( MAX_GRID - 1 )
+#define MAX_GRID	( ( int32_t ) 8 ) /* note label will denote 1 - ( MAX_GRID - 1 ) */
 #define SHOW_NUM	( ( int32_t ) 0 )
 #define MAX_TRIES	( ( int32_t ) 4 )
 #define MAX_STR_IN	( ( int32_t ) 50 )
